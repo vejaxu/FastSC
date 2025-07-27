@@ -1,0 +1,19 @@
+nohup: ignoring input
+X shape: (1004, 2)
+y shape: (1004,)
+Running method: log(k) PM..epoch: 0
+epoch: 1
+epoch: 2
+epoch: 3
+epoch: 4
+epoch: 5
+epoch: 6
+epoch: 7
+epoch: 8
+epoch: 9
+
+
+ Summary for AC graph, n = 1004, k = 2
+
+           log(k) PM: 	nmi:  0.301 +/-  0.205 	ari:  0.253 +/-  0.277 	f1:  0.692 +/-  0.158 	time:  0.015s +/-  0.016
+

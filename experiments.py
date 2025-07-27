@@ -55,10 +55,10 @@ def align_labels(true_labels, pred_labels):
 def print_performances(performances):
     for alg_name, perf in performances.items():
         print(f"{alg_name: >20}: "
-              f"\ttime: {perf.time: .3f}s +/- {perf.t_std: .3f},"
-              f"\tari: {perf.ari: .3f} +/- {perf.ari_std: .3f},"
               f"\tnmi: {perf.nmi: .3f} +/- {perf.nmi_std: .3f}", 
-              f"\tf1: {perf.f1: .3f} +/- {perf.f1_std: .3f}"
+              f"\tari: {perf.ari: .3f} +/- {perf.ari_std: .3f}", 
+              f"\tf1: {perf.f1: .3f} +/- {perf.f1_std: .3f}",
+              f"\ttime: {perf.time: .3f}s +/- {perf.t_std: .3f}"
               )
     print()
 
@@ -93,8 +93,8 @@ def evaluate_one_algorithm(g: stag.graph.Graph,
     running_time = end - start
 
     # ari = stag.cluster.adjusted_rand_index(gt_labels, labels)
-    ari = adjusted_rand_score(gt_labels, labels)
     nmi = normalized_mutual_info_score(gt_labels, labels)
+    ari = adjusted_rand_score(gt_labels, labels)
     labels = align_labels(gt_labels, labels)
     f1 = f1_score(gt_labels, labels, average='macro')
     return main.PerfData(g, ari, nmi, f1, running_time)
